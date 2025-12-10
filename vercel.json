@@ -1,16 +1,8 @@
 {
   "version": 2,
-  "functions": {
-    "api/index.py": {
-      "runtime": "python3.11",
-      "memory": 1024,
-      "maxDuration": 10
-    }
-  },
   "routes": [
     { "src": "/predict", "dest": "/api/index.py" },
     { "src": "/api/(.*)", "dest": "/api/index.py" },
     { "src": "/(.*)", "dest": "/" }
   ]
 }
-
