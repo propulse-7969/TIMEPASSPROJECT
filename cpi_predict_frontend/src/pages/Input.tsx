@@ -95,11 +95,31 @@ const InputPage: React.FC<InputPageProps> = ({ onPrediction }) => {
   };
 
   return (
-    <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-      <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: '20px' }}>
+    <div
+      style={{
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
+        width: '100%'
+      }}
+    >
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          width: '100%',
+          maxWidth: '720px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '16px'
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <label htmlFor="num-semesters">
-            Enter your Semester: 
+            Enter your Semester:
           </label>
           <input
             id="num-semesters"
@@ -108,17 +128,36 @@ const InputPage: React.FC<InputPageProps> = ({ onPrediction }) => {
             value={numSemesters > 0 ? numSemesters : ''}
             onChange={handleNumChange}
             disabled={isLoading}
-            style={{ padding: '8px', marginLeft: '10px', width: '100px' }}
+            style={{ padding: '8px', width: '120px', textAlign: 'center' }}
           />
         </div>
         
         {/* Dynamic CPI Input Fields */}
         {numSemesters > 0 && (
-          <div style={{ border: '1px solid #ccc', padding: '15px', borderRadius: '5px' }}>
-            <p>Enter CPI for each semester (0.0 to 10.0):</p>
+          <div
+            style={{
+              border: '1px solid #ccc',
+              padding: '15px',
+              borderRadius: '5px',
+              width: '100%',
+              maxWidth: '640px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '10px'
+            }}
+          >
+            <p style={{ margin: 0 }}>Enter CPI for each semester (0.0 to 10.0):</p>
             {Array.from({ length: numSemesters }).map((_, index) => (
-              <div key={index} style={{ marginBottom: '10px' }}>
-                <label style={{ display: 'inline-block', width: '120px' }}>
+              <div
+                key={index}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px'
+                }}
+              >
+                <label style={{ width: '130px', textAlign: 'right' }}>
                   Semester {index + 1}:
                 </label>
                 <input
@@ -129,7 +168,7 @@ const InputPage: React.FC<InputPageProps> = ({ onPrediction }) => {
                   placeholder="e.g., 9.25"
                   required
                   onChange={(e) => handleCpiChange(index, e.target.value)}
-                  style={{ padding: '8px' }}
+                  style={{ padding: '8px', width: '140px', textAlign: 'center' }}
                   disabled={isLoading}
                 />
               </div>
@@ -141,7 +180,7 @@ const InputPage: React.FC<InputPageProps> = ({ onPrediction }) => {
           type="submit" 
           disabled={numSemesters < 2 || isLoading}
           style={{ 
-            marginTop: '20px', 
+            marginTop: '10px', 
             padding: '10px 20px', 
             backgroundColor: isLoading ? '#ccc' : '#007bff', 
             color: 'white', 
@@ -154,7 +193,7 @@ const InputPage: React.FC<InputPageProps> = ({ onPrediction }) => {
         </button>
       </form>
 
-      {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
+      {error && <p style={{ color: 'red', marginTop: '10px', textAlign: 'center' }}>{error}</p>}
     </div>
   );
 };

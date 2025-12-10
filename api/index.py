@@ -55,7 +55,7 @@ def exec_model(sem: List[float], cp: List[float]):
     X_plot = np.linspace(1, nexs, 100).reshape(-1, 1)
     y_plot = model.predict(X_plot)
 
-    plt.figure(figsize=(5, 10))
+    plt.figure(figsize=(5, 5))
     plt.scatter(X, y, color="blue", label="Past CPI")
     plt.plot(X_plot, y_plot, color="red", label="Regression Plot")
     plt.scatter(

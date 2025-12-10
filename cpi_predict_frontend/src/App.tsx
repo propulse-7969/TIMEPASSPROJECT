@@ -18,21 +18,35 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-        <h1 style={{ textAlign: 'center' }}>CPI Prediction Tool</h1>
-        <Routes>
-          {/* Route for the data input page */}
-          <Route 
-            path="/" 
-            element={<InputPage onPrediction={handlePrediction} />} 
-          />
-          
-          {/* Route for the results page */}
-          <Route 
-            path="/output" 
-            element={<OutputPage data={predictionData} />} 
-          />
-        </Routes>
+      <div
+        style={{
+          minHeight: '100vh',
+          width: '100vw',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '40px 20px',
+          fontFamily: 'Arial, sans-serif',
+          textAlign: 'center'
+        }}
+      >
+        <h1 style={{ marginBottom: '20px' }}>CPI Prediction Tool</h1>
+        <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+          <Routes>
+            {/* Route for the data input page */}
+            <Route 
+              path="/" 
+              element={<InputPage onPrediction={handlePrediction} />} 
+            />
+            
+            {/* Route for the results page */}
+            <Route 
+              path="/output" 
+              element={<OutputPage data={predictionData} />} 
+            />
+          </Routes>
+        </div>
       </div>
     </Router>
   );
