@@ -5,7 +5,7 @@ from typing import List, Optional
 
 import matplotlib.pyplot as plt
 import numpy as np
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Response
 from fastapi.middleware.cors import CORSMiddleware
 from mangum import Mangum
 from pydantic import BaseModel
