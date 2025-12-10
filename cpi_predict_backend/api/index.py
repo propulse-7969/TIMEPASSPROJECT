@@ -33,6 +33,17 @@ app.add_middleware(
 )
 
 
+@app.get("/")
+def root():
+    return {"status": "ok"}
+
+
+@app.options("/predict")
+def options_predict():
+    """Handle CORS preflight for /predict."""
+    return Response(status_code=200)
+
+
 def exec_model(sem: List[float], cp: List[float]):
     X = np.array(sem).reshape(-1, 1)
     y = np.array(cp)
