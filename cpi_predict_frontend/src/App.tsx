@@ -35,6 +35,9 @@ const App: React.FC = () => {
         <p style={{ fontStyle: 'italic', marginTop: '-8px', marginBottom: '20px' }}>
           “Visualize your Downfall...”
         </p>
+        <p style={{ color: 'red', marginTop: '-10px', marginBottom: '20px' }}>
+          Pleace do not enter SPI, enter CPI
+        </p>
         <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
           <Routes>
             {/* Route for the data input page */}
