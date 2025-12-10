@@ -36,7 +36,7 @@ const App: React.FC = () => {
           “Visualize your Downfall...”
         </p>
         <p style={{ color: 'red', marginTop: '-10px', marginBottom: '20px' }}>
-          Pleace do not enter SPI, enter CPI
+          Please do not enter SPI, enter CPI
         </p>
         <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
           <Routes>
