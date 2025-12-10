@@ -32,6 +32,9 @@ const App: React.FC = () => {
         }}
       >
         <h1 style={{ marginBottom: '20px' }}>CPI Prediction Tool</h1>
+        <p style={{ fontStyle: 'italic', marginTop: '-8px', marginBottom: '20px' }}>
+          “Visualize your Downfall...”
+        </p>
         <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
           <Routes>
             {/* Route for the data input page */}

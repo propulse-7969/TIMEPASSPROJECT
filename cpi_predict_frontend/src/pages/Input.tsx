@@ -20,7 +20,7 @@ const InputPage: React.FC<InputPageProps> = ({ onPrediction }) => {
   const [error, setError] = useState<string>('');
 
   // Handle change for the main number of semesters input
-  const handleNumChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleNumChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const num = parseInt(e.target.value);
     if (num > 0) {
       setNumSemesters(num);
@@ -121,15 +121,23 @@ const InputPage: React.FC<InputPageProps> = ({ onPrediction }) => {
           <label htmlFor="num-semesters">
             Enter your Semester:
           </label>
-          <input
+          <select
             id="num-semesters"
-            type="number"
-            min="2"
             value={numSemesters > 0 ? numSemesters : ''}
             onChange={handleNumChange}
             disabled={isLoading}
-            style={{ padding: '8px', width: '120px', textAlign: 'center' }}
-          />
+            style={{ padding: '8px', width: '140px', textAlign: 'center' }}
+          >
+            <option value="">Select</option>
+            {Array.from({ length: 9 }).map((_, idx) => {
+              const val = idx + 2; // 2..10
+              return (
+                <option key={val} value={val}>
+                  {val}
+                </option>
+              );
+            })}
+          </select>
         </div>
         
         {/* Dynamic CPI Input Fields */}
