@@ -61,7 +61,7 @@ def exec_model(sem: List[float], cp: List[float]):
     if pred<0:
         pred=0
     all_cpi = np.concatenate([y, [pred]])
-    miny = min(all_cpi)
+    miny = min(all_cpi) - 0.3
     maxy = 10
     X_plot = np.linspace(1, nexs, 100).reshape(-1, 1)
     y_plot = model.predict(X_plot)
